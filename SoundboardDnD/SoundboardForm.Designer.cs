@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoundboardForm));
             this.tsbEditSource = new System.Windows.Forms.ToolStripButton();
             this.tsbEditTitle = new System.Windows.Forms.ToolStripButton();
             this.tsbStopAllSounds = new System.Windows.Forms.ToolStripButton();
@@ -85,15 +84,6 @@
             this.tsbEditSource.Size = new System.Drawing.Size(98, 22);
             this.tsbEditSource.Text = "Edit track source";
             // 
-            // tsbRemoveTrack
-            // 
-            this.tsbRemoveTrack.CheckOnClick = true;
-            this.tsbRemoveTrack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbRemoveTrack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRemoveTrack.Name = "tsbRemoveTrack";
-            this.tsbRemoveTrack.Size = new System.Drawing.Size(23, 22);
-            this.tsbRemoveTrack.Text = "Remove track";
-            // 
             // tsbEditTitle
             // 
             this.tsbEditTitle.CheckOnClick = true;
@@ -111,6 +101,15 @@
             this.tsbStopAllSounds.Size = new System.Drawing.Size(91, 22);
             this.tsbStopAllSounds.Text = "Stop all sounds";
             this.tsbStopAllSounds.Click += new System.EventHandler(this.StopAll_Click);
+            // 
+            // tsbRemoveTrack
+            // 
+            this.tsbRemoveTrack.CheckOnClick = true;
+            this.tsbRemoveTrack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbRemoveTrack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRemoveTrack.Name = "tsbRemoveTrack";
+            this.tsbRemoveTrack.Size = new System.Drawing.Size(83, 22);
+            this.tsbRemoveTrack.Text = "Remove track";
             // 
             // button1
             // 
@@ -485,9 +484,9 @@
             this.tsEditBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbEditSource,
             this.tsbEditTitle,
+            this.tsbRemoveTrack,
             this.tsbStopAllSounds,
-            this.tsbEditDirectory,
-            this.tsbRemoveTrack});
+            this.tsbEditDirectory});
             this.tsEditBar.Location = new System.Drawing.Point(0, 0);
             this.tsEditBar.Name = "tsEditBar";
             this.tsEditBar.Size = new System.Drawing.Size(849, 25);
