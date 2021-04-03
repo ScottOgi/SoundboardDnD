@@ -80,7 +80,7 @@
             this.tsbEditSource.CheckOnClick = true;
             this.tsbEditSource.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditSource.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditSource.Name = "tsbEditSource";
+            this.tsbEditSource.Name = "tsb-EditSource";
             this.tsbEditSource.Size = new System.Drawing.Size(98, 22);
             this.tsbEditSource.Text = "Edit track source";
             // 
@@ -89,7 +89,7 @@
             this.tsbEditTitle.CheckOnClick = true;
             this.tsbEditTitle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditTitle.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditTitle.Name = "tsbEditTitle";
+            this.tsbEditTitle.Name = "tsb-EditTitle";
             this.tsbEditTitle.Size = new System.Drawing.Size(83, 22);
             this.tsbEditTitle.Text = "Edit track title";
             // 
@@ -97,7 +97,7 @@
             // 
             this.tsbStopAllSounds.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbStopAllSounds.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbStopAllSounds.Name = "tsbStopAllSounds";
+            this.tsbStopAllSounds.Name = "tsb-StopAllSounds";
             this.tsbStopAllSounds.Size = new System.Drawing.Size(91, 22);
             this.tsbStopAllSounds.Text = "Stop all sounds";
             this.tsbStopAllSounds.Click += new System.EventHandler(this.StopAll_Click);
@@ -107,7 +107,7 @@
             this.tsbRemoveTrack.CheckOnClick = true;
             this.tsbRemoveTrack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbRemoveTrack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRemoveTrack.Name = "tsbRemoveTrack";
+            this.tsbRemoveTrack.Name = "tsb-RemoveTrack";
             this.tsbRemoveTrack.Size = new System.Drawing.Size(83, 22);
             this.tsbRemoveTrack.Text = "Remove track";
             // 
@@ -430,20 +430,11 @@
             this.gbBackground.Controls.Add(this.button26);
             this.gbBackground.Controls.Add(this.button27);
             this.gbBackground.Location = new System.Drawing.Point(12, 28);
-            this.gbBackground.Name = "gbBackground";
+            this.gbBackground.Name = "gb-Background";
             this.gbBackground.Size = new System.Drawing.Size(392, 481);
             this.gbBackground.TabIndex = 32;
             this.gbBackground.TabStop = false;
             this.gbBackground.Text = "Background Music";
-            // 
-            // tbBackground
-            // 
-            this.tbBackground.Location = new System.Drawing.Point(132, 19);
-            this.tbBackground.Name = "tbBackground";
-            this.tbBackground.Size = new System.Drawing.Size(244, 45);
-            this.tbBackground.TabIndex = 31;
-            this.tbBackground.Value = 10;
-            this.tbBackground.Scroll += new System.EventHandler(this.tbAdjustVolume_Scroll);
             // 
             // gbSingle
             // 
@@ -464,16 +455,25 @@
             this.gbSingle.Controls.Add(this.button29);
             this.gbSingle.Controls.Add(this.button30);
             this.gbSingle.Location = new System.Drawing.Point(445, 28);
-            this.gbSingle.Name = "gbSingle";
+            this.gbSingle.Name = "gb-Single";
             this.gbSingle.Size = new System.Drawing.Size(392, 481);
             this.gbSingle.TabIndex = 33;
             this.gbSingle.TabStop = false;
             this.gbSingle.Text = "Single Sounds";
             // 
+            // tbBackground
+            // 
+            this.tbBackground.Location = new System.Drawing.Point(132, 19);
+            this.tbBackground.Name = "tb-Background";
+            this.tbBackground.Size = new System.Drawing.Size(244, 45);
+            this.tbBackground.TabIndex = 31;
+            this.tbBackground.Value = 10;
+            this.tbBackground.Scroll += new System.EventHandler(this.tbAdjustVolume_Scroll);
+            // 
             // tbSingle
             // 
             this.tbSingle.Location = new System.Drawing.Point(131, 19);
-            this.tbSingle.Name = "tbSingle";
+            this.tbSingle.Name = "tb-Single";
             this.tbSingle.Size = new System.Drawing.Size(244, 45);
             this.tbSingle.TabIndex = 28;
             this.tbSingle.Value = 10;
@@ -488,7 +488,7 @@
             this.tsbStopAllSounds,
             this.tsbEditDirectory});
             this.tsEditBar.Location = new System.Drawing.Point(0, 0);
-            this.tsEditBar.Name = "tsEditBar";
+            this.tsEditBar.Name = "ts-EditBar";
             this.tsEditBar.Size = new System.Drawing.Size(849, 25);
             this.tsEditBar.TabIndex = 34;
             this.tsEditBar.Text = "toolStrip1";
@@ -497,7 +497,7 @@
             // 
             this.tsbEditDirectory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditDirectory.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditDirectory.Name = "tsbEditDirectory";
+            this.tsbEditDirectory.Name = "tsb-EditDirectory";
             this.tsbEditDirectory.Size = new System.Drawing.Size(153, 22);
             this.tsbEditDirectory.Text = "Change preferred directory";
             this.tsbEditDirectory.Click += new System.EventHandler(this.PreferredDirectory_Click);

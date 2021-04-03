@@ -63,6 +63,7 @@
     <Compile Include="InputPrompt.cs" />
     <Compile Include="Models\Mp3Info.cs" />
     <Compile Include="Models\SaveInfo.cs" />
+    <Compile Include="Resources\Strings.cs" />
     <Compile Include="SoundboardForm.cs">
       <SubType>Form</SubType>
     </Compile>

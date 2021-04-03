@@ -1,4 +1,5 @@
 ﻿using SoundboardDnD.Models;
+using SoundboardDnD.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +19,6 @@ namespace SoundboardDnD.Helpers
                 Group group = Group.None;
                 Enum.TryParse(b.Parent.Name, out group);
 
-                if (buttonMp3s[b.Name] == null)
-                {
-                    buttonMp3s[b.Name] = new Mp3Info(path, group);
-                }
-
                 buttonMp3s[b.Name] = new Mp3Info(path, group);
                 b.Text = GetName(path);
             }
@@ -32,12 +28,11 @@ namespace SoundboardDnD.Helpers
             return false;
         }
 
-        public static void FadeTracks(string group, Mp3Info mp3, Dictionary<string, Mp3Info> buttonMp3s, double bgVolume, double snVolume)
+        public static void FadeTracks(string group, Mp3Info mp3, Dictionary<string, Mp3Info> buttonMp3s, double volume)
         {
-            if (group == nameof(Group.gbBackground))
+            if (group.GetGroupName() == nameof(Group.Background))
             {
-                var items = buttonMp3s.Where(x => x.Value != null).ToList();
-                var activePlayer = items.FirstOrDefault(x => x.Value.IsActive && x.Value.Group == Group.gbBackground).Value?.MP;
+                var activePlayer = buttonMp3s.FirstOrDefault(x => x.Value != null && x.Value.IsActive && x.Value.Group == Group.Background).Value?.MP;
 
                 if (mp3.MP == null) mp3.MP = new MediaPlayer();
                 mp3.MP.Open(new Uri(mp3.Path));
@@ -45,23 +40,23 @@ namespace SoundboardDnD.Helpers
                 if (activePlayer != null)
                 {
                     mp3.MP.Volume = 0;
-                    mp3.MP.Play();
-                    int seconds = 5;
+                    int fadeTimeInSeconds = 5;
 
                     Timer t = new Timer();
                     t.Interval = 1000;
-                    t.Tick += new EventHandler((s, ea) => seconds = HandleTick(activePlayer, mp3.MP, seconds, bgVolume, s));
+                    t.Tick += new EventHandler((s, ea) => fadeTimeInSeconds = HandleTick(activePlayer, mp3.MP, fadeTimeInSeconds, volume, s));
+                    mp3.MP.Play();
                     t.Start();
                 }
                 else
                 {
-                    mp3.MP.Volume = bgVolume / 10;
+                    mp3.MP.Volume = volume / 10;
                     mp3.MP.Play();
                 }
             }
             else
             {
-                mp3.MP.Volume = snVolume / 10;
+                mp3.MP.Volume = volume / 10;
                 mp3.MP.Play();
             }
         }
@@ -96,11 +91,11 @@ namespace SoundboardDnD.Helpers
 
             if (mp3 == null || (mp3.HasName && mp3.HasPath))
             {
-                MessageBox.Show("No track loaded so no name to edit!", "No track to rename", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Strings.NoTrackToEdit, Strings.NoTrackToRename, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            var newTitle = InputPrompt.ShowDialog("Enter a new title for this track", "New track title", mp3.Name);
+            var newTitle = InputPrompt.ShowDialog(Strings.EnterNewTrackTitle, Strings.NewTrackTitle, mp3.Name);
 
             if (buttonMp3s.ContainsKey(b.Name))
             {

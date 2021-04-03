@@ -1,5 +1,6 @@
 ﻿using SoundboardDnD.Helpers;
 using SoundboardDnD.Models;
+using SoundboardDnD.Resources;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -54,17 +55,18 @@ namespace SoundboardDnD
             else if (tsbRemoveTrack.Checked)
             {
                 ButtonMp3s[b.Name] = null;
-                b.Text = "[____]";
+                b.Text = Strings.Placeholder;
                 FileHelpers.SaveSettings(ButtonMp3s, preferredPath);
             }
             else if (mp3 != null && !string.IsNullOrWhiteSpace(mp3.Path))
             {
-                Mp3Helpers.FadeTracks(group, mp3, ButtonMp3s, tbBackground.Value, tbSingle.Value);
+                var volume = b.Parent.Controls[0] as TrackBar;
+                Mp3Helpers.FadeTracks(group, mp3, ButtonMp3s, volume.Value);
                 return;
             }
             else
             {
-                MessageBox.Show("No track loaded for this button", "No track to play", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Strings.NoTrackLoaded, Strings.NoTrackToPlay, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -73,10 +75,7 @@ namespace SoundboardDnD
         {
             foreach(Mp3Info mp in ButtonMp3s.Values)
             {
-                if (mp != null)
-                {
-                    mp.MP.Stop();
-                }
+                mp?.MP?.Stop();
             }
         }
 
@@ -103,8 +102,7 @@ namespace SoundboardDnD
         private void tbAdjustVolume_Scroll(object sender, EventArgs e)
         {
             TrackBar tb = sender as TrackBar;
-            Group group = Group.None;
-            Enum.TryParse(tb.Parent.Name, out group);
+            Group group = tb.Parent.Name.GetGroupName().GetGroupFrom();
 
             List<MediaPlayer> mp = ButtonMp3s.Where(x => x.Value?.Group == group)
                 .Select(x => x.Value.MP).ToList();
