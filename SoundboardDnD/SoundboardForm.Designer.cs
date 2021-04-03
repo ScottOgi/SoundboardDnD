@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoundboardForm));
             this.tsbEditSource = new System.Windows.Forms.ToolStripButton();
             this.tsbEditTitle = new System.Windows.Forms.ToolStripButton();
             this.tsbStopAllSounds = new System.Windows.Forms.ToolStripButton();
+            this.tsbRemoveTrack = new System.Windows.Forms.ToolStripButton();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -74,25 +76,34 @@
             this.tsEditBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStripButton1
+            // tsbEditSource
             // 
+            this.tsbEditSource.CheckOnClick = true;
             this.tsbEditSource.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditSource.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditSource.Name = "tsbEditSource";
             this.tsbEditSource.Size = new System.Drawing.Size(98, 22);
             this.tsbEditSource.Text = "Edit track source";
-            this.tsbEditSource.CheckOnClick = true;
             // 
-            // toolStripButton2
+            // tsbRemoveTrack
             // 
+            this.tsbRemoveTrack.CheckOnClick = true;
+            this.tsbRemoveTrack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbRemoveTrack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRemoveTrack.Name = "tsbRemoveTrack";
+            this.tsbRemoveTrack.Size = new System.Drawing.Size(23, 22);
+            this.tsbRemoveTrack.Text = "Remove track";
+            // 
+            // tsbEditTitle
+            // 
+            this.tsbEditTitle.CheckOnClick = true;
             this.tsbEditTitle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditTitle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditTitle.Name = "tsbEditTitle";
             this.tsbEditTitle.Size = new System.Drawing.Size(83, 22);
             this.tsbEditTitle.Text = "Edit track title";
-            this.tsbEditTitle.CheckOnClick = true;
             // 
-            // toolStripButton3
+            // tsbStopAllSounds
             // 
             this.tsbStopAllSounds.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbStopAllSounds.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -469,20 +480,21 @@
             this.tbSingle.Value = 10;
             this.tbSingle.Scroll += new System.EventHandler(this.tbAdjustVolume_Scroll);
             // 
-            // toolStrip1
+            // tsEditBar
             // 
             this.tsEditBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbEditSource,
             this.tsbEditTitle,
             this.tsbStopAllSounds,
-            this.tsbEditDirectory});
+            this.tsbEditDirectory,
+            this.tsbRemoveTrack});
             this.tsEditBar.Location = new System.Drawing.Point(0, 0);
             this.tsEditBar.Name = "tsEditBar";
             this.tsEditBar.Size = new System.Drawing.Size(849, 25);
             this.tsEditBar.TabIndex = 34;
             this.tsEditBar.Text = "toolStrip1";
             // 
-            // toolStripButton4
+            // tsbEditDirectory
             // 
             this.tsbEditDirectory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditDirectory.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -554,6 +566,7 @@
         private System.Windows.Forms.ToolStripButton tsbEditDirectory;
         private System.Windows.Forms.TrackBar tbBackground;
         private System.Windows.Forms.TrackBar tbSingle;
+        private System.Windows.Forms.ToolStripButton tsbRemoveTrack;
     }
 }
 

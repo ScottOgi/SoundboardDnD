@@ -51,6 +51,12 @@ namespace SoundboardDnD
                 Mp3Helpers.EditTitle(b, ButtonMp3s);
                 return;
             }
+            else if (tsbRemoveTrack.Checked)
+            {
+                ButtonMp3s[b.Name] = null;
+                b.Text = "[____]";
+                FileHelpers.SaveSettings(ButtonMp3s, preferredPath);
+            }
             else if (mp3 != null && !string.IsNullOrWhiteSpace(mp3.Path))
             {
                 Mp3Helpers.FadeTracks(group, mp3, ButtonMp3s, tbBackground.Value, tbSingle.Value);
@@ -113,6 +119,20 @@ namespace SoundboardDnD
                 var btn = e.Item as ToolStripButton;
                 if (btn != null && btn.CheckOnClick && btn.Checked)
                 {
+                    foreach (var item in e.ToolStrip.Items)
+                    {
+                        try
+                        {
+                            var b = item as ToolStripButton;
+                            if (b.Name != btn.Name)
+                                b.Checked = false;
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+
                     Rectangle bounds = new Rectangle(System.Drawing.Point.Empty, e.Item.Size);
                     e.Graphics.FillRectangle(System.Drawing.Brushes.LightGreen, bounds);
                     e.Item.Text = btn.Text;

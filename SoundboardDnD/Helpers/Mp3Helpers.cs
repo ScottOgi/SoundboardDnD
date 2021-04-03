@@ -100,7 +100,7 @@ namespace SoundboardDnD.Helpers
                 return false;
             }
 
-            var newTitle = InputPrompt.ShowDialog("Enter a new title for this track", "New track title");
+            var newTitle = InputPrompt.ShowDialog("Enter a new title for this track", "New track title", mp3.Name);
 
             if (buttonMp3s.ContainsKey(b.Name))
             {

@@ -23,7 +23,7 @@ namespace SoundboardDnD.Helpers
             {
                 if (mp3.Value != null)
                 {
-                    Mp3Info mp = new Mp3Info(mp3.Value.Path, mp3.Value.Group);
+                    Mp3Info mp = new Mp3Info(mp3.Value.Path, mp3.Value.Group, mp3.Value.Name);
                     mp.MP = null;
 
                     mp3ToSave.Add(mp3.Key, mp);
@@ -53,13 +53,13 @@ namespace SoundboardDnD.Helpers
 
                 foreach (KeyValuePair<string, Mp3Info> x in savedInfo.Mp3Info)
                 {
-                    if (x.Value != null)
+                    if (x.Value != null && File.Exists(x.Value.Path))
                         buttonMp3s.Add(x.Key, new Mp3Info(x.Value.Path, x.Value.Group, x.Value.Name));
                 }
 
                 foreach (var button in buttons)
                 {
-                    if (buttonMp3s.ContainsKey(button.Name) && !string.IsNullOrWhiteSpace(buttonMp3s[button.Name]?.Name))
+                    if (buttonMp3s.ContainsKey(button.Name) && buttonMp3s[button.Name] != null)
                     {
                         button.Text = buttonMp3s[button.Name].Name;
                     }

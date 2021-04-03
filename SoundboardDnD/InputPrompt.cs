@@ -23,18 +23,22 @@ namespace SoundboardDnD
             TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400, Text = placeHolder };
             Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
             confirmation.Click += (sender, e) => {
-                if (Validate(sender, e, textBox.Text)) prompt.Close();
-                else textLabel.Text = text + "\n" + "Name cannot be empty";
+                if (Validate(textBox.Text)) prompt.Close();
+                else
+                {
+                    prompt.DialogResult = DialogResult.None;
+                    MessageBox.Show("Title cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             };
             prompt.Controls.Add(textBox);
             prompt.Controls.Add(confirmation);
             prompt.Controls.Add(textLabel);
             prompt.AcceptButton = confirmation;
 
-            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : placeHolder;
         }
 
-        private static bool Validate(object sender, EventArgs e, string text)
+        private static bool Validate(string text)
         {
             return !string.IsNullOrWhiteSpace(text) && text.Length > 1;
         }
