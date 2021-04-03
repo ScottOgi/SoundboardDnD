@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditSource = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditTitle = new System.Windows.Forms.ToolStripButton();
+            this.tsbStopAllSounds = new System.Windows.Forms.ToolStripButton();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -62,44 +62,44 @@
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.gbBackground = new System.Windows.Forms.GroupBox();
-            this.gbSingle = new System.Windows.Forms.GroupBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.tbSingle = new System.Windows.Forms.TrackBar();
             this.tbBackground = new System.Windows.Forms.TrackBar();
+            this.gbSingle = new System.Windows.Forms.GroupBox();
+            this.tbSingle = new System.Windows.Forms.TrackBar();
+            this.tsEditBar = new System.Windows.Forms.ToolStrip();
+            this.tsbEditDirectory = new System.Windows.Forms.ToolStripButton();
             this.gbBackground.SuspendLayout();
-            this.gbSingle.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbSingle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbBackground)).BeginInit();
+            this.gbSingle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSingle)).BeginInit();
+            this.tsEditBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(98, 22);
-            this.toolStripButton1.Text = "Edit track source";
-            this.toolStripButton1.Click += new System.EventHandler(this.MakeSoundsEditable_CheckedChanged);
+            this.tsbEditSource.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbEditSource.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditSource.Name = "tsbEditSource";
+            this.tsbEditSource.Size = new System.Drawing.Size(98, 22);
+            this.tsbEditSource.Text = "Edit track source";
+            this.tsbEditSource.CheckOnClick = true;
             // 
             // toolStripButton2
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(83, 22);
-            this.toolStripButton2.Text = "Edit track title";
-            this.toolStripButton2.Click += new System.EventHandler(this.MakeTitleEditable_CheckedChanged);
+            this.tsbEditTitle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbEditTitle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditTitle.Name = "tsbEditTitle";
+            this.tsbEditTitle.Size = new System.Drawing.Size(83, 22);
+            this.tsbEditTitle.Text = "Edit track title";
+            this.tsbEditTitle.CheckOnClick = true;
             // 
             // toolStripButton3
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(91, 22);
-            this.toolStripButton3.Text = "Stop all sounds";
-            this.toolStripButton3.Click += new System.EventHandler(this.StopAll_Click);
+            this.tsbStopAllSounds.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbStopAllSounds.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbStopAllSounds.Name = "tsbStopAllSounds";
+            this.tsbStopAllSounds.Size = new System.Drawing.Size(91, 22);
+            this.tsbStopAllSounds.Text = "Stop all sounds";
+            this.tsbStopAllSounds.Click += new System.EventHandler(this.StopAll_Click);
             // 
             // button1
             // 
@@ -426,6 +426,15 @@
             this.gbBackground.TabStop = false;
             this.gbBackground.Text = "Background Music";
             // 
+            // tbBackground
+            // 
+            this.tbBackground.Location = new System.Drawing.Point(132, 19);
+            this.tbBackground.Name = "tbBackground";
+            this.tbBackground.Size = new System.Drawing.Size(244, 45);
+            this.tbBackground.TabIndex = 31;
+            this.tbBackground.Value = 10;
+            this.tbBackground.Scroll += new System.EventHandler(this.tbAdjustVolume_Scroll);
+            // 
             // gbSingle
             // 
             this.gbSingle.Controls.Add(this.tbSingle);
@@ -451,64 +460,55 @@
             this.gbSingle.TabStop = false;
             this.gbSingle.Text = "Single Sounds";
             // 
+            // tbSingle
+            // 
+            this.tbSingle.Location = new System.Drawing.Point(131, 19);
+            this.tbSingle.Name = "tbSingle";
+            this.tbSingle.Size = new System.Drawing.Size(244, 45);
+            this.tbSingle.TabIndex = 28;
+            this.tbSingle.Value = 10;
+            this.tbSingle.Scroll += new System.EventHandler(this.tbAdjustVolume_Scroll);
+            // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(849, 25);
-            this.toolStrip1.TabIndex = 34;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsEditBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbEditSource,
+            this.tsbEditTitle,
+            this.tsbStopAllSounds,
+            this.tsbEditDirectory});
+            this.tsEditBar.Location = new System.Drawing.Point(0, 0);
+            this.tsEditBar.Name = "tsEditBar";
+            this.tsEditBar.Size = new System.Drawing.Size(849, 25);
+            this.tsEditBar.TabIndex = 34;
+            this.tsEditBar.Text = "toolStrip1";
             // 
             // toolStripButton4
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(153, 22);
-            this.toolStripButton4.Text = "Change preferred directory";
-            this.toolStripButton4.Click += new System.EventHandler(this.PreferredDirectory_Click);
-            // 
-            // trackBarSingle
-            // 
-            this.tbSingle.Location = new System.Drawing.Point(131, 19);
-            this.tbSingle.Value = 10;
-            this.tbSingle.Name = "SingleVolume";
-            this.tbSingle.Size = new System.Drawing.Size(244, 45);
-            this.tbSingle.TabIndex = 28;
-            this.tbSingle.Scroll += new System.EventHandler(this.tbAdjustVolume_Scroll);
-            // 
-            // trackBarBackground
-            // 
-            this.tbBackground.Location = new System.Drawing.Point(132, 19);
-            this.tbBackground.Value = 10;
-            this.tbBackground.Name = "BackgroundVolume";
-            this.tbBackground.Size = new System.Drawing.Size(244, 45);
-            this.tbBackground.TabIndex = 31;
-            this.tbBackground.Scroll += new System.EventHandler(this.tbAdjustVolume_Scroll);
+            this.tsbEditDirectory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbEditDirectory.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditDirectory.Name = "tsbEditDirectory";
+            this.tsbEditDirectory.Size = new System.Drawing.Size(153, 22);
+            this.tsbEditDirectory.Text = "Change preferred directory";
+            this.tsbEditDirectory.Click += new System.EventHandler(this.PreferredDirectory_Click);
             // 
             // SoundboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 521);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsEditBar);
             this.Controls.Add(this.gbBackground);
             this.Controls.Add(this.gbSingle);
             this.Name = "SoundboardForm";
             this.Text = "Soundboard";
             this.gbBackground.ResumeLayout(false);
             this.gbBackground.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBackground)).EndInit();
             this.gbSingle.ResumeLayout(false);
             this.gbSingle.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSingle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbBackground)).EndInit();
+            this.tsEditBar.ResumeLayout(false);
+            this.tsEditBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -547,11 +547,11 @@
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.GroupBox gbBackground;
         private System.Windows.Forms.GroupBox gbSingle;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStrip tsEditBar;
+        private System.Windows.Forms.ToolStripButton tsbEditSource;
+        private System.Windows.Forms.ToolStripButton tsbEditTitle;
+        private System.Windows.Forms.ToolStripButton tsbStopAllSounds;
+        private System.Windows.Forms.ToolStripButton tsbEditDirectory;
         private System.Windows.Forms.TrackBar tbBackground;
         private System.Windows.Forms.TrackBar tbSingle;
     }

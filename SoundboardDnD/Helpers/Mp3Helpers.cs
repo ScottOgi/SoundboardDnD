@@ -92,7 +92,9 @@ namespace SoundboardDnD.Helpers
 
         public static bool EditTitle(Button b, Dictionary<string, Mp3Info> buttonMp3s)
         {
-            if (buttonMp3s[b.Name] == null || (buttonMp3s[b.Name].HasName && buttonMp3s[b.Name].HasPath))
+            var mp3 = buttonMp3s[b.Name];
+
+            if (mp3 == null || (mp3.HasName && mp3.HasPath))
             {
                 MessageBox.Show("No track loaded so no name to edit!", "No track to rename", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
