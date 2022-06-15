@@ -32,7 +32,7 @@
             this.tsbEditTitle = new System.Windows.Forms.ToolStripButton();
             this.tsbStopAllSounds = new System.Windows.Forms.ToolStripButton();
             this.tsbRemoveTrack = new System.Windows.Forms.ToolStripButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBackground = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -63,16 +63,43 @@
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.gbBackground = new System.Windows.Forms.GroupBox();
+            this.btnStopBackground = new System.Windows.Forms.Button();
             this.tbBackground = new System.Windows.Forms.TrackBar();
-            this.gbSingle = new System.Windows.Forms.GroupBox();
             this.tbSingle = new System.Windows.Forms.TrackBar();
             this.tsEditBar = new System.Windows.Forms.ToolStrip();
             this.tsbEditDirectory = new System.Windows.Forms.ToolStripButton();
+            this.tcOverlaySounds = new System.Windows.Forms.TabControl();
+            this.tpSoundEffect = new System.Windows.Forms.TabPage();
+            this.btnStopSoundEffects = new System.Windows.Forms.Button();
+            this.tpAmbience = new System.Windows.Forms.TabPage();
+            this.btnStopAmbience = new System.Windows.Forms.Button();
+            this.tbAmbience = new System.Windows.Forms.TrackBar();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button32 = new System.Windows.Forms.Button();
+            this.button33 = new System.Windows.Forms.Button();
+            this.button34 = new System.Windows.Forms.Button();
+            this.button35 = new System.Windows.Forms.Button();
+            this.button36 = new System.Windows.Forms.Button();
+            this.button37 = new System.Windows.Forms.Button();
+            this.button38 = new System.Windows.Forms.Button();
+            this.button39 = new System.Windows.Forms.Button();
+            this.button40 = new System.Windows.Forms.Button();
+            this.button41 = new System.Windows.Forms.Button();
+            this.button42 = new System.Windows.Forms.Button();
+            this.button43 = new System.Windows.Forms.Button();
+            this.button44 = new System.Windows.Forms.Button();
+            this.button45 = new System.Windows.Forms.Button();
+            this.cbBackgroundLoop = new System.Windows.Forms.CheckBox();
+            this.cbSoundEffectLoop = new System.Windows.Forms.CheckBox();
+            this.cbAmbienceLoop = new System.Windows.Forms.CheckBox();
             this.gbBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbBackground)).BeginInit();
-            this.gbSingle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSingle)).BeginInit();
             this.tsEditBar.SuspendLayout();
+            this.tcOverlaySounds.SuspendLayout();
+            this.tpSoundEffect.SuspendLayout();
+            this.tpAmbience.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAmbience)).BeginInit();
             this.SuspendLayout();
             // 
             // tsbEditSource
@@ -80,7 +107,7 @@
             this.tsbEditSource.CheckOnClick = true;
             this.tsbEditSource.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditSource.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditSource.Name = "tsb-EditSource";
+            this.tsbEditSource.Name = "tsbEditSource";
             this.tsbEditSource.Size = new System.Drawing.Size(98, 22);
             this.tsbEditSource.Text = "Edit track source";
             // 
@@ -89,7 +116,7 @@
             this.tsbEditTitle.CheckOnClick = true;
             this.tsbEditTitle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditTitle.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditTitle.Name = "tsb-EditTitle";
+            this.tsbEditTitle.Name = "tsbEditTitle";
             this.tsbEditTitle.Size = new System.Drawing.Size(83, 22);
             this.tsbEditTitle.Text = "Edit track title";
             // 
@@ -97,7 +124,7 @@
             // 
             this.tsbStopAllSounds.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbStopAllSounds.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbStopAllSounds.Name = "tsb-StopAllSounds";
+            this.tsbStopAllSounds.Name = "tsbStopAllSounds";
             this.tsbStopAllSounds.Size = new System.Drawing.Size(91, 22);
             this.tsbStopAllSounds.Text = "Stop all sounds";
             this.tsbStopAllSounds.Click += new System.EventHandler(this.StopAll_Click);
@@ -107,19 +134,19 @@
             this.tsbRemoveTrack.CheckOnClick = true;
             this.tsbRemoveTrack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbRemoveTrack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRemoveTrack.Name = "tsb-RemoveTrack";
+            this.tsbRemoveTrack.Name = "tsbRemoveTrack";
             this.tsbRemoveTrack.Size = new System.Drawing.Size(83, 22);
             this.tsbRemoveTrack.Text = "Remove track";
             // 
-            // button1
+            // btnBackground
             // 
-            this.button1.Location = new System.Drawing.Point(6, 86);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 72);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.MP3Button_Click);
+            this.btnBackground.Location = new System.Drawing.Point(6, 86);
+            this.btnBackground.Name = "button1";
+            this.btnBackground.Size = new System.Drawing.Size(119, 72);
+            this.btnBackground.TabIndex = 1;
+            this.btnBackground.Text = "button1";
+            this.btnBackground.UseVisualStyleBackColor = true;
+            this.btnBackground.Click += new System.EventHandler(this.MP3Button_Click);
             // 
             // button2
             // 
@@ -143,7 +170,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(6, 86);
+            this.button4.Location = new System.Drawing.Point(35, 89);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(119, 72);
             this.button4.TabIndex = 4;
@@ -153,7 +180,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(131, 86);
+            this.button5.Location = new System.Drawing.Point(160, 89);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(119, 72);
             this.button5.TabIndex = 5;
@@ -163,7 +190,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(256, 86);
+            this.button6.Location = new System.Drawing.Point(285, 89);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(119, 72);
             this.button6.TabIndex = 6;
@@ -203,7 +230,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(6, 164);
+            this.button10.Location = new System.Drawing.Point(35, 167);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(119, 72);
             this.button10.TabIndex = 9;
@@ -213,7 +240,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(131, 164);
+            this.button11.Location = new System.Drawing.Point(160, 167);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(119, 72);
             this.button11.TabIndex = 8;
@@ -223,7 +250,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(256, 164);
+            this.button12.Location = new System.Drawing.Point(285, 167);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(119, 72);
             this.button12.TabIndex = 7;
@@ -263,7 +290,7 @@
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(6, 242);
+            this.button16.Location = new System.Drawing.Point(35, 245);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(119, 72);
             this.button16.TabIndex = 15;
@@ -273,7 +300,7 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(131, 242);
+            this.button17.Location = new System.Drawing.Point(160, 245);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(119, 72);
             this.button17.TabIndex = 14;
@@ -283,7 +310,7 @@
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(256, 242);
+            this.button18.Location = new System.Drawing.Point(285, 245);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(119, 72);
             this.button18.TabIndex = 13;
@@ -323,7 +350,7 @@
             // 
             // button22
             // 
-            this.button22.Location = new System.Drawing.Point(6, 320);
+            this.button22.Location = new System.Drawing.Point(35, 323);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(119, 72);
             this.button22.TabIndex = 21;
@@ -333,7 +360,7 @@
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(131, 320);
+            this.button23.Location = new System.Drawing.Point(160, 323);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(119, 72);
             this.button23.TabIndex = 20;
@@ -343,7 +370,7 @@
             // 
             // button24
             // 
-            this.button24.Location = new System.Drawing.Point(256, 320);
+            this.button24.Location = new System.Drawing.Point(285, 323);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(119, 72);
             this.button24.TabIndex = 19;
@@ -383,7 +410,7 @@
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(6, 398);
+            this.button28.Location = new System.Drawing.Point(35, 401);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(119, 72);
             this.button28.TabIndex = 27;
@@ -393,7 +420,7 @@
             // 
             // button29
             // 
-            this.button29.Location = new System.Drawing.Point(131, 398);
+            this.button29.Location = new System.Drawing.Point(160, 401);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(119, 72);
             this.button29.TabIndex = 26;
@@ -403,7 +430,7 @@
             // 
             // button30
             // 
-            this.button30.Location = new System.Drawing.Point(256, 398);
+            this.button30.Location = new System.Drawing.Point(285, 401);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(119, 72);
             this.button30.TabIndex = 25;
@@ -413,8 +440,10 @@
             // 
             // gbBackground
             // 
+            this.gbBackground.Controls.Add(this.cbBackgroundLoop);
+            this.gbBackground.Controls.Add(this.btnStopBackground);
             this.gbBackground.Controls.Add(this.tbBackground);
-            this.gbBackground.Controls.Add(this.button1);
+            this.gbBackground.Controls.Add(this.btnBackground);
             this.gbBackground.Controls.Add(this.button2);
             this.gbBackground.Controls.Add(this.button3);
             this.gbBackground.Controls.Add(this.button7);
@@ -429,41 +458,26 @@
             this.gbBackground.Controls.Add(this.button25);
             this.gbBackground.Controls.Add(this.button26);
             this.gbBackground.Controls.Add(this.button27);
-            this.gbBackground.Location = new System.Drawing.Point(12, 28);
+            this.gbBackground.Location = new System.Drawing.Point(12, 73);
             this.gbBackground.Name = "gb-Background";
             this.gbBackground.Size = new System.Drawing.Size(392, 481);
             this.gbBackground.TabIndex = 32;
             this.gbBackground.TabStop = false;
             this.gbBackground.Text = "Background Music";
             // 
-            // gbSingle
+            // btnStopBackground
             // 
-            this.gbSingle.Controls.Add(this.tbSingle);
-            this.gbSingle.Controls.Add(this.button4);
-            this.gbSingle.Controls.Add(this.button5);
-            this.gbSingle.Controls.Add(this.button6);
-            this.gbSingle.Controls.Add(this.button10);
-            this.gbSingle.Controls.Add(this.button11);
-            this.gbSingle.Controls.Add(this.button12);
-            this.gbSingle.Controls.Add(this.button16);
-            this.gbSingle.Controls.Add(this.button17);
-            this.gbSingle.Controls.Add(this.button18);
-            this.gbSingle.Controls.Add(this.button22);
-            this.gbSingle.Controls.Add(this.button23);
-            this.gbSingle.Controls.Add(this.button24);
-            this.gbSingle.Controls.Add(this.button28);
-            this.gbSingle.Controls.Add(this.button29);
-            this.gbSingle.Controls.Add(this.button30);
-            this.gbSingle.Location = new System.Drawing.Point(445, 28);
-            this.gbSingle.Name = "gb-Single";
-            this.gbSingle.Size = new System.Drawing.Size(392, 481);
-            this.gbSingle.TabIndex = 33;
-            this.gbSingle.TabStop = false;
-            this.gbSingle.Text = "Single Sounds";
+            this.btnStopBackground.Location = new System.Drawing.Point(51, 19);
+            this.btnStopBackground.Name = "btnStop-Background";
+            this.btnStopBackground.Size = new System.Drawing.Size(75, 23);
+            this.btnStopBackground.TabIndex = 32;
+            this.btnStopBackground.Text = "Stop";
+            this.btnStopBackground.UseVisualStyleBackColor = true;
+            this.btnStopBackground.Click += new System.EventHandler(this.StopPlayback);
             // 
             // tbBackground
             // 
-            this.tbBackground.Location = new System.Drawing.Point(132, 19);
+            this.tbBackground.Location = new System.Drawing.Point(131, 35);
             this.tbBackground.Name = "tb-Background";
             this.tbBackground.Size = new System.Drawing.Size(244, 45);
             this.tbBackground.TabIndex = 31;
@@ -472,12 +486,21 @@
             // 
             // tbSingle
             // 
-            this.tbSingle.Location = new System.Drawing.Point(131, 19);
-            this.tbSingle.Name = "tb-Single";
+            this.tbSingle.Location = new System.Drawing.Point(160, 38);
+            this.tbSingle.Name = "tb-SoundEffect";
             this.tbSingle.Size = new System.Drawing.Size(244, 45);
             this.tbSingle.TabIndex = 28;
             this.tbSingle.Value = 10;
             this.tbSingle.Scroll += new System.EventHandler(this.tbAdjustVolume_Scroll);
+            // 
+            // tbAmbience
+            // 
+            this.tbAmbience.Location = new System.Drawing.Point(160, 38);
+            this.tbAmbience.Name = "tb-Ambience";
+            this.tbAmbience.Size = new System.Drawing.Size(244, 45);
+            this.tbAmbience.TabIndex = 43;
+            this.tbAmbience.Value = 10;
+            this.tbAmbience.Click += new System.EventHandler(this.tbAdjustVolume_Scroll);
             // 
             // tsEditBar
             // 
@@ -488,8 +511,8 @@
             this.tsbStopAllSounds,
             this.tsbEditDirectory});
             this.tsEditBar.Location = new System.Drawing.Point(0, 0);
-            this.tsEditBar.Name = "ts-EditBar";
-            this.tsEditBar.Size = new System.Drawing.Size(849, 25);
+            this.tsEditBar.Name = "tsEditBar";
+            this.tsEditBar.Size = new System.Drawing.Size(872, 25);
             this.tsEditBar.TabIndex = 34;
             this.tsEditBar.Text = "toolStrip1";
             // 
@@ -497,36 +520,304 @@
             // 
             this.tsbEditDirectory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbEditDirectory.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditDirectory.Name = "tsb-EditDirectory";
+            this.tsbEditDirectory.Name = "tsbEditDirectory";
             this.tsbEditDirectory.Size = new System.Drawing.Size(153, 22);
             this.tsbEditDirectory.Text = "Change preferred directory";
             this.tsbEditDirectory.Click += new System.EventHandler(this.PreferredDirectory_Click);
+            // 
+            // tcOverlaySounds
+            // 
+            this.tcOverlaySounds.Controls.Add(this.tpSoundEffect);
+            this.tcOverlaySounds.Controls.Add(this.tpAmbience);
+            this.tcOverlaySounds.Location = new System.Drawing.Point(410, 48);
+            this.tcOverlaySounds.Name = "tcOverlaySounds";
+            this.tcOverlaySounds.SelectedIndex = 0;
+            this.tcOverlaySounds.Size = new System.Drawing.Size(450, 506);
+            this.tcOverlaySounds.TabIndex = 35;
+            // 
+            // tpSingleSoundEffect
+            // 
+            this.tpSoundEffect.Controls.Add(this.cbSoundEffectLoop);
+            this.tpSoundEffect.Controls.Add(this.btnStopSoundEffects);
+            this.tpSoundEffect.Controls.Add(this.tbSingle);
+            this.tpSoundEffect.Controls.Add(this.button5);
+            this.tpSoundEffect.Controls.Add(this.button4);
+            this.tpSoundEffect.Controls.Add(this.button30);
+            this.tpSoundEffect.Controls.Add(this.button29);
+            this.tpSoundEffect.Controls.Add(this.button6);
+            this.tpSoundEffect.Controls.Add(this.button28);
+            this.tpSoundEffect.Controls.Add(this.button10);
+            this.tpSoundEffect.Controls.Add(this.button24);
+            this.tpSoundEffect.Controls.Add(this.button11);
+            this.tpSoundEffect.Controls.Add(this.button23);
+            this.tpSoundEffect.Controls.Add(this.button12);
+            this.tpSoundEffect.Controls.Add(this.button22);
+            this.tpSoundEffect.Controls.Add(this.button16);
+            this.tpSoundEffect.Controls.Add(this.button18);
+            this.tpSoundEffect.Controls.Add(this.button17);
+            this.tpSoundEffect.Location = new System.Drawing.Point(4, 22);
+            this.tpSoundEffect.Name = "tp-SoundEffect";
+            this.tpSoundEffect.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSoundEffect.Size = new System.Drawing.Size(442, 480);
+            this.tpSoundEffect.TabIndex = 0;
+            this.tpSoundEffect.Text = "Sound Effects";
+            // 
+            // btnStopSoundEffects
+            // 
+            this.btnStopSoundEffects.Location = new System.Drawing.Point(79, 6);
+            this.btnStopSoundEffects.Name = "btnStop-SoundEffect";
+            this.btnStopSoundEffects.Size = new System.Drawing.Size(75, 23);
+            this.btnStopSoundEffects.TabIndex = 29;
+            this.btnStopSoundEffects.Text = "Stop";
+            this.btnStopSoundEffects.UseVisualStyleBackColor = true;
+            this.btnStopSoundEffects.Click += new System.EventHandler(this.StopPlayback);
+            // 
+            // tpAmbience
+            // 
+            this.tpAmbience.Controls.Add(this.cbAmbienceLoop);
+            this.tpAmbience.Controls.Add(this.btnStopAmbience);
+            this.tpAmbience.Controls.Add(this.tbAmbience);
+            this.tpAmbience.Controls.Add(this.button31);
+            this.tpAmbience.Controls.Add(this.button32);
+            this.tpAmbience.Controls.Add(this.button33);
+            this.tpAmbience.Controls.Add(this.button34);
+            this.tpAmbience.Controls.Add(this.button35);
+            this.tpAmbience.Controls.Add(this.button36);
+            this.tpAmbience.Controls.Add(this.button37);
+            this.tpAmbience.Controls.Add(this.button38);
+            this.tpAmbience.Controls.Add(this.button39);
+            this.tpAmbience.Controls.Add(this.button40);
+            this.tpAmbience.Controls.Add(this.button41);
+            this.tpAmbience.Controls.Add(this.button42);
+            this.tpAmbience.Controls.Add(this.button43);
+            this.tpAmbience.Controls.Add(this.button44);
+            this.tpAmbience.Controls.Add(this.button45);
+            this.tpAmbience.Location = new System.Drawing.Point(4, 22);
+            this.tpAmbience.Name = "tp-Ambience";
+            this.tpAmbience.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAmbience.Size = new System.Drawing.Size(442, 480);
+            this.tpAmbience.TabIndex = 1;
+            this.tpAmbience.Text = "Ambience";
+            // 
+            // btnStopAmbience
+            // 
+            this.btnStopAmbience.Location = new System.Drawing.Point(79, 6);
+            this.btnStopAmbience.Name = "btnStop-Ambience";
+            this.btnStopAmbience.Size = new System.Drawing.Size(75, 23);
+            this.btnStopAmbience.TabIndex = 44;
+            this.btnStopAmbience.Text = "Stop";
+            this.btnStopAmbience.UseVisualStyleBackColor = true;
+            this.btnStopAmbience.Click += new System.EventHandler(this.StopPlayback);
+            // 
+            // button31
+            // 
+            this.button31.Location = new System.Drawing.Point(160, 89);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(119, 72);
+            this.button31.TabIndex = 29;
+            this.button31.Text = "button31";
+            this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button32
+            // 
+            this.button32.Location = new System.Drawing.Point(35, 89);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(119, 72);
+            this.button32.TabIndex = 28;
+            this.button32.Text = "button32";
+            this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button33
+            // 
+            this.button33.Location = new System.Drawing.Point(285, 401);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(119, 72);
+            this.button33.TabIndex = 40;
+            this.button33.Text = "button33";
+            this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button34
+            // 
+            this.button34.Location = new System.Drawing.Point(160, 401);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(119, 72);
+            this.button34.TabIndex = 41;
+            this.button34.Text = "button34";
+            this.button34.UseVisualStyleBackColor = true;
+            this.button34.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button35
+            // 
+            this.button35.Location = new System.Drawing.Point(285, 89);
+            this.button35.Name = "button35";
+            this.button35.Size = new System.Drawing.Size(119, 72);
+            this.button35.TabIndex = 30;
+            this.button35.Text = "button35";
+            this.button35.UseVisualStyleBackColor = true;
+            this.button35.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button36
+            // 
+            this.button36.Location = new System.Drawing.Point(35, 401);
+            this.button36.Name = "button36";
+            this.button36.Size = new System.Drawing.Size(119, 72);
+            this.button36.TabIndex = 42;
+            this.button36.Text = "button36";
+            this.button36.UseVisualStyleBackColor = true;
+            this.button36.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button37
+            // 
+            this.button37.Location = new System.Drawing.Point(35, 167);
+            this.button37.Name = "button37";
+            this.button37.Size = new System.Drawing.Size(119, 72);
+            this.button37.TabIndex = 33;
+            this.button37.Text = "button37";
+            this.button37.UseVisualStyleBackColor = true;
+            this.button37.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button38
+            // 
+            this.button38.Location = new System.Drawing.Point(285, 323);
+            this.button38.Name = "button38";
+            this.button38.Size = new System.Drawing.Size(119, 72);
+            this.button38.TabIndex = 37;
+            this.button38.Text = "button38";
+            this.button38.UseVisualStyleBackColor = true;
+            this.button38.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button39
+            // 
+            this.button39.Location = new System.Drawing.Point(160, 167);
+            this.button39.Name = "button39";
+            this.button39.Size = new System.Drawing.Size(119, 72);
+            this.button39.TabIndex = 32;
+            this.button39.Text = "button39";
+            this.button39.UseVisualStyleBackColor = true;
+            this.button39.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button40
+            // 
+            this.button40.Location = new System.Drawing.Point(160, 323);
+            this.button40.Name = "button40";
+            this.button40.Size = new System.Drawing.Size(119, 72);
+            this.button40.TabIndex = 38;
+            this.button40.Text = "button40";
+            this.button40.UseVisualStyleBackColor = true;
+            this.button40.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button41
+            // 
+            this.button41.Location = new System.Drawing.Point(285, 167);
+            this.button41.Name = "button41";
+            this.button41.Size = new System.Drawing.Size(119, 72);
+            this.button41.TabIndex = 31;
+            this.button41.Text = "button41";
+            this.button41.UseVisualStyleBackColor = true;
+            this.button41.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button42
+            // 
+            this.button42.Location = new System.Drawing.Point(35, 323);
+            this.button42.Name = "button42";
+            this.button42.Size = new System.Drawing.Size(119, 72);
+            this.button42.TabIndex = 39;
+            this.button42.Text = "button42";
+            this.button42.UseVisualStyleBackColor = true;
+            this.button42.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button43
+            // 
+            this.button43.Location = new System.Drawing.Point(35, 245);
+            this.button43.Name = "button43";
+            this.button43.Size = new System.Drawing.Size(119, 72);
+            this.button43.TabIndex = 36;
+            this.button43.Text = "button43";
+            this.button43.UseVisualStyleBackColor = true;
+            this.button43.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button44
+            // 
+            this.button44.Location = new System.Drawing.Point(285, 245);
+            this.button44.Name = "button44";
+            this.button44.Size = new System.Drawing.Size(119, 72);
+            this.button44.TabIndex = 34;
+            this.button44.Text = "button44";
+            this.button44.UseVisualStyleBackColor = true;
+            this.button44.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // button45
+            // 
+            this.button45.Location = new System.Drawing.Point(160, 245);
+            this.button45.Name = "button45";
+            this.button45.Size = new System.Drawing.Size(119, 72);
+            this.button45.TabIndex = 35;
+            this.button45.Text = "button45";
+            this.button45.UseVisualStyleBackColor = true;
+            this.button45.Click += new System.EventHandler(this.MP3Button_Click);
+            // 
+            // checkBox1
+            // 
+            this.cbBackgroundLoop.AutoSize = true;
+            this.cbBackgroundLoop.Location = new System.Drawing.Point(51, 49);
+            this.cbBackgroundLoop.Name = "cbLoop-Background";
+            this.cbBackgroundLoop.Size = new System.Drawing.Size(80, 17);
+            this.cbBackgroundLoop.TabIndex = 33;
+            this.cbBackgroundLoop.Text = "Loop";
+            this.cbBackgroundLoop.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.cbSoundEffectLoop.AutoSize = true;
+            this.cbSoundEffectLoop.Location = new System.Drawing.Point(79, 36);
+            this.cbSoundEffectLoop.Name = "cbLoop-SoundEffect";
+            this.cbSoundEffectLoop.Size = new System.Drawing.Size(80, 17);
+            this.cbSoundEffectLoop.TabIndex = 30;
+            this.cbSoundEffectLoop.Text = "Loop";
+            this.cbSoundEffectLoop.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.cbAmbienceLoop.AutoSize = true;
+            this.cbAmbienceLoop.Location = new System.Drawing.Point(79, 36);
+            this.cbAmbienceLoop.Name = "cbLoop-Ambience";
+            this.cbAmbienceLoop.Size = new System.Drawing.Size(80, 17);
+            this.cbAmbienceLoop.TabIndex = 45;
+            this.cbAmbienceLoop.Text = "Loop";
+            this.cbAmbienceLoop.UseVisualStyleBackColor = true;
             // 
             // SoundboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 521);
+            this.ClientSize = new System.Drawing.Size(872, 566);
+            this.Controls.Add(this.tcOverlaySounds);
             this.Controls.Add(this.tsEditBar);
             this.Controls.Add(this.gbBackground);
-            this.Controls.Add(this.gbSingle);
             this.Name = "SoundboardForm";
-            this.Text = "Soundboard";
+            this.Text = "D&D Soundboard";
             this.gbBackground.ResumeLayout(false);
             this.gbBackground.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbBackground)).EndInit();
-            this.gbSingle.ResumeLayout(false);
-            this.gbSingle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSingle)).EndInit();
             this.tsEditBar.ResumeLayout(false);
             this.tsEditBar.PerformLayout();
+            this.tcOverlaySounds.ResumeLayout(false);
+            this.tpSoundEffect.ResumeLayout(false);
+            this.tpSoundEffect.PerformLayout();
+            this.tpAmbience.ResumeLayout(false);
+            this.tpAmbience.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAmbience)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBackground;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -557,7 +848,6 @@
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.GroupBox gbBackground;
-        private System.Windows.Forms.GroupBox gbSingle;
         private System.Windows.Forms.ToolStrip tsEditBar;
         private System.Windows.Forms.ToolStripButton tsbEditSource;
         private System.Windows.Forms.ToolStripButton tsbEditTitle;
@@ -565,7 +855,32 @@
         private System.Windows.Forms.ToolStripButton tsbEditDirectory;
         private System.Windows.Forms.TrackBar tbBackground;
         private System.Windows.Forms.TrackBar tbSingle;
+        private System.Windows.Forms.TrackBar tbAmbience;
         private System.Windows.Forms.ToolStripButton tsbRemoveTrack;
+        private System.Windows.Forms.TabControl tcOverlaySounds;
+        private System.Windows.Forms.TabPage tpAmbience;
+        private System.Windows.Forms.TabPage tpSoundEffect;
+        private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Button button32;
+        private System.Windows.Forms.Button button33;
+        private System.Windows.Forms.Button button34;
+        private System.Windows.Forms.Button button35;
+        private System.Windows.Forms.Button button36;
+        private System.Windows.Forms.Button button37;
+        private System.Windows.Forms.Button button38;
+        private System.Windows.Forms.Button button39;
+        private System.Windows.Forms.Button button40;
+        private System.Windows.Forms.Button button41;
+        private System.Windows.Forms.Button button42;
+        private System.Windows.Forms.Button button43;
+        private System.Windows.Forms.Button button44;
+        private System.Windows.Forms.Button button45;
+        private System.Windows.Forms.Button btnStopBackground;
+        private System.Windows.Forms.Button btnStopSoundEffects;
+        private System.Windows.Forms.Button btnStopAmbience;
+        private System.Windows.Forms.CheckBox cbBackgroundLoop;
+        private System.Windows.Forms.CheckBox cbSoundEffectLoop;
+        private System.Windows.Forms.CheckBox cbAmbienceLoop;
     }
 }
 

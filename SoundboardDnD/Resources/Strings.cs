@@ -26,7 +26,7 @@ namespace SoundboardDnD.Resources
         public static Group GetGroupFrom(this string name)
         {
             Group group = Group.None;
-            Enum.TryParse(name, out group);
+            Enum.TryParse(name.GetGroupName(), out group);
             return group;
         }
     }

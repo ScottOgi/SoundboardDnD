@@ -27,7 +27,10 @@ namespace SoundboardDnD
 
             List<Button> buttons = new List<Button>();
             buttons.AddRange(gbBackground.Controls.OfType<Button>());
-            buttons.AddRange(gbSingle.Controls.OfType<Button>());
+            buttons.AddRange(tpSoundEffect.Controls.OfType<Button>());
+            buttons.AddRange(tpAmbience.Controls.OfType<Button>());
+
+            buttons.RemoveAll(x => x.Name.Contains("Stop"));
 
             editButtons.Add(tsbEditDirectory);
             editButtons.Add(tsbEditSource);
@@ -39,7 +42,7 @@ namespace SoundboardDnD
         private void MP3Button_Click(object sender, EventArgs e)
         {
             Button b = sender as Button;
-            var group = b.Parent.Name;
+            var group = b.Parent.Name.GetGroupFrom();
             var mp3 = ButtonMp3s[b.Name];
 
             if (tsbEditSource.Checked)
@@ -58,10 +61,17 @@ namespace SoundboardDnD
                 b.Text = Strings.Placeholder;
                 FileHelpers.SaveSettings(ButtonMp3s, preferredPath);
             }
-            else if (mp3 != null && !string.IsNullOrWhiteSpace(mp3.Path))
+            else if (mp3.IsPlayable())
             {
-                var volume = b.Parent.Controls[0] as TrackBar;
-                Mp3Helpers.FadeTracks(group, mp3, ButtonMp3s, volume.Value);
+                var name = "tb-" + group;
+                var volume = b.Parent.Controls.Find(name, true).FirstOrDefault() as TrackBar;
+
+                if (group == Group.Background)
+                    Mp3Helpers.FadeTracksOfType(Group.Background, mp3, ButtonMp3s, volume.Value);
+                if (group == Group.Ambience)
+                    Mp3Helpers.FadeTracksOfType(Group.Ambience, mp3, ButtonMp3s, volume.Value);
+                if (group == Group.SoundEffect)
+                    Mp3Helpers.PlaySoundEffect(mp3, volume.Value);
                 return;
             }
             else
@@ -76,6 +86,16 @@ namespace SoundboardDnD
             foreach(Mp3Info mp in ButtonMp3s.Values)
             {
                 mp?.MP?.Stop();
+            }
+        }
+
+        private void StopPlayback(object sender, EventArgs e)
+        {
+            Group group = (sender as Button).Name.GetGroupFrom();
+            foreach(Mp3Info mp in ButtonMp3s.Values)
+            {
+                if (mp?.Group == group)
+                    mp?.MP?.Stop();
             }
         }
 

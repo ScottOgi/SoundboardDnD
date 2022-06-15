@@ -16,10 +16,7 @@ namespace SoundboardDnD.Helpers
 
             if (!string.IsNullOrWhiteSpace(path))
             {
-                Group group = Group.None;
-                Enum.TryParse(b.Parent.Name, out group);
-
-                buttonMp3s[b.Name] = new Mp3Info(path, group);
+                buttonMp3s[b.Name] = buttonMp3s[b.Name]?.Replace(path, b.Parent.Name.GetGroupFrom()) ?? new Mp3Info(path, b.Parent.Name.GetGroupFrom());
                 b.Text = GetName(path);
             }
 
@@ -28,31 +25,30 @@ namespace SoundboardDnD.Helpers
             return false;
         }
 
-        public static void FadeTracks(string group, Mp3Info mp3, Dictionary<string, Mp3Info> buttonMp3s, double volume)
+        public static void FadeTracksOfType(Group group, Mp3Info mp3, Dictionary<string, Mp3Info> buttonMp3s, double volume)
         {
-            if (group.GetGroupName() == nameof(Group.Background))
+            var activePlayer = buttonMp3s.FirstOrDefault(x => x.Value != null && x.Value.IsActive && x.Value.Group == group).Value?.MP;
+
+            if (mp3.MP == null) mp3.MP = new MediaPlayer();
+
+            if (mp3.MP.Source == activePlayer?.Source)
             {
-                var activePlayer = buttonMp3s.FirstOrDefault(x => x.Value != null && x.Value.IsActive && x.Value.Group == Group.Background).Value?.MP;
+                activePlayer.Open(new Uri(mp3.Path));
+                return;
+            }
 
-                if (mp3.MP == null) mp3.MP = new MediaPlayer();
-                mp3.MP.Open(new Uri(mp3.Path));
+            mp3.MP.Open(new Uri(mp3.Path));
 
-                if (activePlayer != null)
-                {
-                    mp3.MP.Volume = 0;
-                    int fadeTimeInSeconds = 5;
+            if (activePlayer != null)
+            {
+                mp3.MP.Volume = 0;
+                int fadeTimeInSeconds = 5;
 
-                    Timer t = new Timer();
-                    t.Interval = 1000;
-                    t.Tick += new EventHandler((s, ea) => fadeTimeInSeconds = HandleTick(activePlayer, mp3.MP, fadeTimeInSeconds, volume, s));
-                    mp3.MP.Play();
-                    t.Start();
-                }
-                else
-                {
-                    mp3.MP.Volume = volume / 10;
-                    mp3.MP.Play();
-                }
+                Timer t = new Timer();
+                t.Interval = 1000;
+                t.Tick += new EventHandler((s, ea) => fadeTimeInSeconds = HandleTick(activePlayer, mp3.MP, fadeTimeInSeconds, volume, s));
+                mp3.MP.Play();
+                t.Start();
             }
             else
             {
@@ -74,6 +70,12 @@ namespace SoundboardDnD.Helpers
                 s.Stop();
             }
             return seconds;
+        }
+
+        public static void PlaySoundEffect(Mp3Info mp3, double volume)
+        {
+            mp3.MP.Volume = volume / 10;
+            mp3.MP.Play();
         }
 
         public static string HandleMP3Selection(string buttonId, string preferredPath)

@@ -1,5 +1,7 @@
 ﻿using SoundboardDnD.Helpers;
 using System;
+using System.Linq;
+using System.Windows.Forms;
 using System.Windows.Media;
 
 namespace SoundboardDnD.Models
@@ -7,8 +9,8 @@ namespace SoundboardDnD.Models
     public enum Group
     {
         Background,
-        Single,
-        Playlist,
+        SoundEffect,
+        Ambience,
         None
     }
 
@@ -35,16 +37,47 @@ namespace SoundboardDnD.Models
         {
             var mp = new MediaPlayer();
             mp.Open(new Uri(path));
-            mp.MediaEnded += new EventHandler(Media_Ended);
+            mp.MediaEnded += (sender, e) => Mp3InfoExtensions.Media_Ended(sender, e, this.Group);
             return mp;
         }
+    }
 
-        private void Media_Ended(object sender, EventArgs e)
+    public static class Mp3InfoExtensions
+    {
+        public static bool IsPlayable(this Mp3Info mp3)
         {
-            var player = sender as MediaPlayer;
-            player.Position = TimeSpan.Zero;
-            player.Stop();
+            return mp3 != null && !string.IsNullOrWhiteSpace(mp3.Path);
         }
 
+        public static Mp3Info Replace(this Mp3Info mp3, string path, Group group, string name = null)
+        {
+            mp3.Path = path;
+            mp3.Group = group;
+            mp3.Name = name == null ? Mp3Helpers.GetName(path) : name;
+            mp3.MP?.Stop();
+            mp3.MP = mp3.MP ?? new MediaPlayer();
+            mp3.MP.Open(new Uri(path));
+            mp3.MP.MediaEnded += (sender, e) => Media_Ended(sender, e, mp3.Group);
+            return mp3;
+        }
+
+        public static void Media_Ended(object sender, EventArgs e, Group group)
+        {
+            var player = sender as MediaPlayer;
+
+            var control = "cbLoop-" + group;
+            var loop = SoundboardForm.ActiveForm?.Controls?.Find(control, true)?.FirstOrDefault() as CheckBox;
+
+            if (loop != null && loop.Checked)
+            {
+                player.Position = TimeSpan.Zero;
+                player.Play();
+            }
+            else
+            {
+                player.Position = TimeSpan.Zero;
+                player.Stop();
+            }
+        }
     }
 }
